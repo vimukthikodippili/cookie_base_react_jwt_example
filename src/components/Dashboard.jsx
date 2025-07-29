@@ -1,9 +1,12 @@
-export default function Dashboard({ user }) {
+import { useSelector } from 'react-redux';
+
+export default function Dashboard() {
+  const user = useSelector(state => state.auth.user);
+
   return (
     <div>
-      <h2>Welcome, {user?.name || 'Guest'}</h2>
-      <p>Email: {user?.email}</p>
-      <p>Role: {user?.role}</p>
+      <h2>Welcome, {user?.name || 'Guest'}!</h2>
+      <p>This is your dashboard.</p>
     </div>
   );
 }
